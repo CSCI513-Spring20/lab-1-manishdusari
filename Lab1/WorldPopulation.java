@@ -13,7 +13,7 @@ public class WorldPopulation {
 	}
 	
 	public void readInputFile(){
-		population = readPopulationFile("src\\WorldPopulation.csv");
+		population = readPopulationFile("Lab1\\WorldPopulation.csv");
 	}
 	
 	public void setStrategy(SortStrategy strategy){
@@ -44,9 +44,8 @@ public class WorldPopulation {
 	}
 	
 	public void sortPopulation(){		
-		sortStrategy.resetTimer();
-		long[] sortedResults = sortStrategy.sort(population);	
-		System.out.println("Sorted using " + sortStrategy.strategyName() + " in " + sortStrategy.getSortTime() + " msecs.");
+		sortStrategy.getSortTime(population);
+
 	}
 	
 	public void computeTotalPopulation(){
