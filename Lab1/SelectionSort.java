@@ -1,38 +1,17 @@
-import java.util.Date;
-
-public class SelectionSort implements SortStrategy {
-
-	long msecsTime = 0; 
-	@Override
-	public long[] sort(long numbers[]) {
-	  for (int i = 0; i < numbers.length-1; i++)
-	  {
-		 int min = i;
-		 for (int j = i+1; j < numbers.length; j++)
-			 if (numbers[j] < numbers[min]) 
-				min = j;
-		 long temp = numbers[i];
-		 numbers[i] = numbers[min];
-		 numbers[min] = temp;  	 
-	   }
-	  return numbers;
+public class SelectionSort implements SortStrategy{
+	public void getSortTime(long[] ar) {
+		long startTime = System.currentTimeMillis();
+		System.out.println("Length is "+ar.length);
+		for (int i = 0; i < ar.length-1; i++) {
+			int min = i;
+			for (int j = i+1; j < ar.length; j++)
+			if (ar[j] < ar[min]) min = j;
+			long temp = ar[i];
+			ar[i] = ar[min];
+			ar[min] = temp;
+			}
+		long endTime = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		System.out.println("Selectionsort time is "+totalTime+" Milliseconds");
 	}
-
-	@Override
-	public long getSortTime() {
-		long currentTime = (new Date()).getTime();
-		long totMSecs = (currentTime - msecsTime);
-		return totMSecs;
-	}
-
-	@Override
-	public void resetTimer() {
-		  msecsTime = (new Date()).getTime();
-	}
-
-	@Override
-	public String strategyName() {
-		return "Selection Sort";
-	}
-
-}
+} 

@@ -1,39 +1,19 @@
-import java.util.Date;
-
-public class InsertionSort implements SortStrategy {
-
-	long msecsTime = 0; 
-	@Override
-	public long[] sort(long numbers[]) {
-	
-		for (int i=1; i < numbers.length; i++)
+public class InsertionSort implements SortStrategy{
+	public void getSortTime(long[] ar) {
+		long startTime = System.currentTimeMillis();
+		for (int i=1; i < ar.length; i++)
 		   {
-		      long index = numbers[i]; int j = i;
-		      while (j > 0 && numbers[j-1] > index)
+		      long index = ar[i];
+		      int j = i;
+		      while (j > 0 && ar[j-1] > index)
 		      {
-		           numbers[j] =numbers[j-1];
+		          ar[j] = ar[j-1];
 		           j--;
 		      }
-		      numbers[j] = index;
+		      ar[j] = index;
 		   } 
-		return numbers;
+		long endTime = System.currentTimeMillis();
+		long totalTime = endTime - startTime;
+		System.out.println("Insertion sort time is "+totalTime+" Milliseconds");
 	}
-
-	@Override
-	public long getSortTime() {
-		long currentTime = (new Date()).getTime();
-		long totMSecs = (currentTime - msecsTime);
-		return totMSecs;
-	}
-
-	@Override
-	public void resetTimer() {
-		  msecsTime = (new Date()).getTime();
-	}
-
-	@Override
-	public String strategyName() {
-		return "Insertion Sort";
-	}
-
-}
+} 

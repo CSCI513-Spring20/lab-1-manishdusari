@@ -1,7 +1,11 @@
+  public interface SortStrategy{
+	void getSortTime(long []ar);
 
-public interface SortStrategy {
-	public long[] sort(long[] numbers);
-	public long getSortTime();
-	public void resetTimer();
-	public String strategyName();
+	void resetTimer();
+
+	String strategyName();
+
+	long[] sort(long[] population);
+
+	String getSortTime();
 }
